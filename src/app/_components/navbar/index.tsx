@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ThemeSelect from "./theme-select";
+import Account from "./account";
 
 const Navbar = () => {
   return (
@@ -7,7 +8,10 @@ const Navbar = () => {
       <Link href="/" className="text-2xl font-bold">
         Recipe Sharing
       </Link>
-      <ThemeSelect />
+      <div className="flex gap-6">
+        <ThemeSelect />
+        <Account />
+      </div>
     </nav>
   );
 };

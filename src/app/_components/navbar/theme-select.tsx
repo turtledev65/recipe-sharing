@@ -30,7 +30,7 @@ const ThemeSelect = () => {
     <select
       value={theme}
       onChange={e => setTheme(e.target.value as ThemeType)}
-      className="rounded-md bg-gray-300 dark:bg-slate-950"
+      className="rounded-md bg-gray-300 px-2 dark:bg-slate-950"
     >
       <option value="system">System</option>
       <option value="light">Light</option>
