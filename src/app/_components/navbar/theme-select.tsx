@@ -1,40 +1,35 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { useEffect, useState } from "react";
 
 type ThemeType = "system" | "light" | "dark";
 
 const ThemeSelect = () => {
   const [theme, setTheme] = useState<ThemeType>("system");
 
-  const handleChangeTheme = useCallback(
-    (e: ChangeEvent<HTMLSelectElement>) => {
-      const newTheme = e.target.value as ThemeType;
-      switch (newTheme) {
-        case "light":
-          document.documentElement.classList.remove("dark");
-          break;
-        case "dark":
-          document.documentElement.classList.add("dark");
-          break;
-        case "system":
-        default:
-          const prefersDark = window.matchMedia(
-            "(prefers-color-scheme: dark)",
-          ).matches;
-          if (prefersDark) document.documentElement.classList.add("dark");
-          else document.documentElement.classList.remove("dark");
-          break;
-      }
-      setTheme(newTheme);
-    },
-    [setTheme],
-  );
+  useEffect(() => {
+    switch (theme) {
+      case "light":
+        document.documentElement.classList.remove("dark");
+        break;
+      case "dark":
+        document.documentElement.classList.add("dark");
+        break;
+      case "system":
+      default:
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        if (prefersDark) document.documentElement.classList.add("dark");
+        else document.documentElement.classList.remove("dark");
+        break;
+    }
+  }, [theme]);
 
   return (
     <select
       value={theme}
-      onChange={handleChangeTheme}
+      onChange={e => setTheme(e.target.value as ThemeType)}
       className="rounded-md bg-gray-300 dark:bg-slate-950"
     >
       <option value="system">System</option>
