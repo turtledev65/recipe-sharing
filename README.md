@@ -25,7 +25,10 @@ pnpm i
 Provide the required enviroment variables in a `.env` file, use `.env.example` for refernce:
 
 ```
-DATABASE_URL=""
+DATABASE_URL=
+
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=
 ```
 
 And now you can run it on `localhost:300` using:
