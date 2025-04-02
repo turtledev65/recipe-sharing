@@ -2,5 +2,5 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  @apply bg-gray-200;
+  @apply bg-gray-200 transition-colors dark:bg-slate-800 dark:text-gray-200;
 }
