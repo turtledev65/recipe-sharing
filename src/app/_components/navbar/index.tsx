@@ -1,0 +1,14 @@
+import Link from "next/link";
+import ThemeSelect from "./theme-select";
+
+const Navbar = () => {
+  return (
+    <nav className="flex justify-between bg-white px-4 py-2 dark:bg-slate-900">
+      <Link href="/" className="text-2xl font-bold">
+        Recipe Sharing
+      </Link>
+      <ThemeSelect />
+    </nav>
+  );
+};
+export default Navbar;
